@@ -57,7 +57,7 @@ router.post('/',
                 return res.status(400).json({msg: 'Invalid credentials'});
             }
 
-            //if everything is ok we will send back the user id that was read from db:
+            //if everything is ok, we will send back the user id that was read from db:
             const payload = {user: {id: user.id}}//id on tässä ilmeisesti mongodb:n oma id kun sitä ei ole schemassa
             //tehdään signaus, eli payload muutetaan tokeniksi joka sitten palautetaan:
             jwt.sign(payload, config.get('jwtSecret'), {
